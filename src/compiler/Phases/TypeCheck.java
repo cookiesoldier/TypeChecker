@@ -262,7 +262,7 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 			
 		}
 		
-		*/
+		
 		// typecheck the return type
 		
 		visitType(e.getReturnType());
@@ -272,6 +272,9 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 		System.out.println("Test          "+e.getReturnType());
 		System.out.println(IR.currentMethod.currentClass.getName());
 		System.out.println("-------Info end --------");
+		
+		*/
+		
 		// we need a new scope for the parameters
 		IR.stack.enterScope();
 		for (MJVariable par : e.getParameters()) {
