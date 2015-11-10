@@ -204,7 +204,7 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 		
 		if(!(e.getInitializer() instanceof MJNoExpression)){
 			
-			//den skal besøges først før man kan checke hvilken type den har.
+			//den skal besï¿½ges fï¿½rst fï¿½r man kan checke hvilken type den har.
 			//da den er en expression
 			MJType initializerType = visitExpression(e.getInitializer());
 			/*
@@ -255,8 +255,8 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 		// remember which method we are in
 		IR.currentMethod = e;
 		
-		//check om metoden er private og hvis den er, så checker vi om dens klasse vi vil kalde den fra matcher med klassen hvor den er lagt,
-		//hvis nej så smid en fejl ellers continue
+		//check om metoden er private og hvis den er, sï¿½ checker vi om dens klasse vi vil kalde den fra matcher med klassen hvor den er lagt,
+		//hvis nej sï¿½ smid en fejl ellers continue
 		/*
 		if(IR.currentMethod.isPrivate() && IR.currentMethod.currentClass == ){
 			
@@ -755,8 +755,20 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 		return null;
 	}
 
+	//Greater Than implementeret
 	public MJType visitExpression(MJGreater e) throws VisitorException {
-		return null;
+		MJType ltype = visitExpression(e.getLhs());
+		MJType rtype = visitExpression(e.getRhs());
+		
+		if (!ltype.isSame(rtype)) { 
+			throw new TypeCheckerException("Arguments to > must be of same type");
+		}
+		
+		if(!ltype.isInt()) {
+			throw new TypeCheckerException("Arguments to > must be of type int");
+		}
+		e.setType(MJType.getBooleanType());
+		return e.getType();
 	}
 
 	public MJType visitExpression(MJDivide e) throws VisitorException {
