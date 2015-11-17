@@ -29,7 +29,20 @@ public class AddThisArgument extends IRElementVisitor<Object> {
 	
 	public Integer visitClass(MJClass e) throws VisitorException {
 		
+		for (MJClass innerClass : e.getInnerClassList()) {
+		
+			IR.currentClass = innerClass;
+			visitClass(innerClass);
+		}
+		
+		IR.currentClass = e;
+		
 		for (MJMethod method : e.getMethodList()) {
+			IR.currentMethod = method;
+			visitMethod(method);
+		}
+		
+		for (MJMethod method : e.getConstructorList()) {
 			IR.currentMethod = method;
 			visitMethod(method);
 		}
@@ -331,7 +344,14 @@ public class AddThisArgument extends IRElementVisitor<Object> {
 	}
 
 	
-	public Object visitExpression(MJNoStatement e) throws VisitorException {
+	public Object visitStatement(MJNoStatement e) throws VisitorException {
+		return null;
+	}
+
+
+	@Override
+	public Object visitExpression(MJArrayInit e) throws VisitorException {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

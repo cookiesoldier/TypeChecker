@@ -29,6 +29,6 @@ public class Analysis {
 			e1.printStackTrace();
 		}
 
-		VariableInit.check(ir);
+//		VariableInit.check(ir);
 	}
 }

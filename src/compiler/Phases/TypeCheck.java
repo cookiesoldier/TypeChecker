@@ -214,7 +214,7 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 			System.out.println(e.getInitializer().getType());
 			*/
 			
-			if(e.getType() == initializerType){
+			if(isAssignable(initializerType, e.getType())){
 				visitType(e.getType());
 				
 			}else{
@@ -653,6 +653,8 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 		
 		//IR.currentClass returnerer den klasse vi er i lige nu, hvorimod IR.currentMethod returnerer metoden vi er i.¨
 		
+		MJType idxtype2 = visitExpression(e.getIndex());
+		System.out.println(idxtype2.getBaseType());
 		
 		MJType idxtype = visitExpression(e.getIndex());
 		
@@ -844,7 +846,7 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 		}
 		
 		
-		return z;
+		return MJType.getArrayType(z);
 	}
 
 	@Override
