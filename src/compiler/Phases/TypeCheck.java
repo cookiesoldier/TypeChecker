@@ -180,6 +180,11 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 		}
 
 		IR.currentClass = e;
+		
+		// check inner classes
+		
+		for (MJClass c : e.getInnerClassList()) 
+			visitClass(c);
 
 		// check fields
 
@@ -651,7 +656,7 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 		
 		// typecheck the index
 		
-		//IR.currentClass returnerer den klasse vi er i lige nu, hvorimod IR.currentMethod returnerer metoden vi er i.¨
+		//IR.currentClass returnerer den klasse vi er i lige nu, hvorimod IR.currentMethod returnerer metoden vi er i.ï¿½
 		
 		MJType idxtype2 = visitExpression(e.getIndex());
 		System.out.println(idxtype2.getBaseType());
