@@ -172,6 +172,14 @@ public class VariableInit extends IRElementVisitorWithArgument<HashSet<MJVariabl
 		visitExpression(e.getRhs(), arg);
 		return arg;
 	}
+	
+//	@Override
+//	public HashSet<MJVariable> visitExpression(MJGreater e, HashSet<MJVariable> arg) 
+//			throws VisitorException{
+//		visitExpression(e.getLhs(), arg);
+//		visitExpression(e.getRhs(), arg);
+//		return arg;
+//	}
 
 	@Override
 	public HashSet<MJVariable> visitExpression(MJPlus e, HashSet<MJVariable> arg)
