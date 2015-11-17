@@ -60,7 +60,7 @@ public abstract class IRElementVisitor<T>  {
 	public T visitExpression(MJExpression e) throws VisitorException {
 		if (e instanceof MJAnd) return visitExpression((MJAnd)e);
 		if (e instanceof MJEqual) return visitExpression((MJEqual)e);
-		if (e instanceof MJGreater) return visitExpression((MJEqual)e);
+		if (e instanceof MJGreater) return visitExpression((MJGreater)e);
 		if (e instanceof MJLess) return visitExpression((MJLess)e);
 		if (e instanceof MJPlus) return visitExpression((MJPlus)e);
 		if (e instanceof MJMinus) return visitExpression((MJMinus)e);
