@@ -262,7 +262,7 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 			
 		}
 		
-		*/
+		
 		// typecheck the return type
 		
 		visitType(e.getReturnType());
@@ -272,6 +272,9 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 		System.out.println("Test          "+e.getReturnType());
 		System.out.println(IR.currentMethod.currentClass.getName());
 		System.out.println("-------Info end --------");
+		
+		*/
+		
 		// we need a new scope for the parameters
 		IR.stack.enterScope();
 		for (MJVariable par : e.getParameters()) {
@@ -640,12 +643,17 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 		// typecheck the identifier
 		MJType idtype = visitExpression(e.getArray());
 		
+		
 		// which must have array type
 		if (!idtype.isArray()) {
 			throw new TypeCheckerException(e.getName()+" must have array type");
 		}
 		
 		// typecheck the index
+		
+		//IR.currentClass returnerer den klasse vi er i lige nu, hvorimod IR.currentMethod returnerer metoden vi er i.¨
+		
+		
 		MJType idxtype = visitExpression(e.getIndex());
 		
 		// which must have type integer
@@ -817,6 +825,32 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 	}
 
 	public MJType visitExpression(MJNoStatement e) throws VisitorException {
+		return null;
+	}
+
+
+	public MJType visitExpression(MJArrayInit e) throws VisitorException {
+		
+		if(e.getArguments().isEmpty()){
+			return MJType.getUntypedType();
+		}
+		MJType z = visitExpression(e.getArguments().getFirst());
+		
+		for(MJExpression c : e.getArguments()){
+			
+			if(!(visitExpression(c) == z)){
+				throw new TypeCheckerException("One of the elements in array dosent match the others type, be consistent");
+			}
+			
+		}
+		
+		
+		return z;
+	}
+
+	@Override
+	public MJType visitStatement(MJNoStatement e) throws VisitorException {
+		// TODO Auto-generated method stub
 		return null;
 	}
 }
