@@ -411,10 +411,10 @@ public class AddThisToSelectors extends IRElementVisitor<MJExpression> {
 		return null;
 	}
 
-	@Override
-	public MJExpression visitExpression(MJNoStatement e) throws VisitorException {
-		// TODO Auto-generated method stub
-		return null;
+
+	public MJExpression visitExpression(MJArrayInit e) throws VisitorException {
+	
+		return e;
 	}
 
 }

@@ -355,4 +355,11 @@ public class AddThisArgument extends IRElementVisitor<Object> {
 		return null;
 	}
 
+
+	@Override
+	public Object visitExpression(MJArrayInit e) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

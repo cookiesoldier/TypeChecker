@@ -60,7 +60,7 @@ public abstract class IRElementVisitor<T>  {
 	public T visitExpression(MJExpression e) throws VisitorException {
 		if (e instanceof MJAnd) return visitExpression((MJAnd)e);
 		if (e instanceof MJEqual) return visitExpression((MJEqual)e);
-		if (e instanceof MJGreater) return visitExpression((MJGreater)e);
+		if (e instanceof MJGreater) return visitExpression((MJEqual)e);
 		if (e instanceof MJLess) return visitExpression((MJLess)e);
 		if (e instanceof MJPlus) return visitExpression((MJPlus)e);
 		if (e instanceof MJMinus) return visitExpression((MJMinus)e);
@@ -90,6 +90,7 @@ public abstract class IRElementVisitor<T>  {
 		if (e instanceof MJSelector) return visitExpression((MJSelector)e);
 		if (e instanceof MJIdentifier) return visitExpression((MJIdentifier)e);
 		if (e instanceof MJNoExpression) return visitExpression((MJNoExpression)e);
+		if (e instanceof MJArrayInit) return visitExpression((MJArrayInit)e);
 		
 		throw new VisitorException("unknown expression class "+e.getClass().getName());
 	}
@@ -124,9 +125,15 @@ public abstract class IRElementVisitor<T>  {
 	
 	public abstract T visitExpression(MJIdentifier e) throws VisitorException;
 	public abstract T visitExpression(MJArray e) throws VisitorException;
+	
+	public abstract T visitExpression(MJArrayInit e) throws VisitorException;
 	public abstract T visitExpression(MJSelector e) throws VisitorException;
 	
 	public abstract T visitExpression(MJNoExpression e) throws VisitorException;
-	public abstract T visitExpression(MJNoStatement e) throws VisitorException;
+	public abstract T visitStatement(MJNoStatement e) throws VisitorException;
+	public Object visitExpression(MJNoStatement e) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
