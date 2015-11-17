@@ -324,7 +324,7 @@ public class AddThisToSelectors extends IRElementVisitor<MJExpression> {
 	public MJExpression visitExpression(MJGreater e) throws VisitorException {
 		e.setLhs(visitExpression(e.getLhs()));
 		e.setRhs(visitExpression(e.getRhs()));
-		return null;
+		return e;
 	}
 
 	public MJExpression visitExpression(MJDivide e) throws VisitorException {

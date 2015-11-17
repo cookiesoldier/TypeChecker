@@ -757,6 +757,7 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 
 	//Greater Than implementeret
 	public MJType visitExpression(MJGreater e) throws VisitorException {
+	
 		MJType ltype = visitExpression(e.getLhs());
 		MJType rtype = visitExpression(e.getRhs());
 		
