@@ -180,6 +180,11 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 		}
 
 		IR.currentClass = e;
+		
+		// check inner classes
+		
+		for (MJClass c : e.getInnerClassList()) 
+			visitClass(c);
 
 		// check fields
 
