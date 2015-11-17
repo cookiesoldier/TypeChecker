@@ -84,6 +84,10 @@ public class PrettyPrint extends IRElementVisitor<Integer> {
 			}
 			pp.println(";");
 		}
+		for (MJClass innerclass : e.getInnerClassList()) {
+			visitClass(innerclass);
+		}
+		
 		for (MJConstructor constructor : e.getConstructorList()) {
 			visitConstructor(constructor);
 		}
@@ -168,7 +172,6 @@ public class PrettyPrint extends IRElementVisitor<Integer> {
 	public Integer visitConstructor(MJConstructor e) throws VisitorException {
 		if (e.isPrivate()) { pp.print("private "); }
 		if (e.isPublic()) { pp.print("public "); }
-		if (e.isStatic()) { pp.print("static "); }
 
 		pp.print(" ");
 		pp.print(e.getName());

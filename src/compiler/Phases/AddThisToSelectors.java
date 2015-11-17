@@ -29,11 +29,20 @@ public class AddThisToSelectors extends IRElementVisitor<MJExpression> {
 
 	public MJExpression visitClass(MJClass e) throws VisitorException {
 		
-		for (MJVariable variable : e.getFieldList()) {
-			visitVariable(variable);
+		for (MJClass innerClass : e.getInnerClassList()) {
+			
+			IR.currentClass = innerClass;
+			visitClass(innerClass);
 		}
 		
+		IR.currentClass = e;
+		
 		for (MJMethod method : e.getMethodList()) {
+			IR.currentMethod = method;
+			visitMethod(method);
+		}
+		
+		for (MJMethod method : e.getConstructorList()) {
 			IR.currentMethod = method;
 			visitMethod(method);
 		}
@@ -47,6 +56,7 @@ public class AddThisToSelectors extends IRElementVisitor<MJExpression> {
 	}
 
 	public MJExpression visitVariable(MJVariable e) throws VisitorException {
+		e.setInitializer(visitExpression(e.getInitializer()));
 		return null;
 	}
 
@@ -330,13 +340,13 @@ public class AddThisToSelectors extends IRElementVisitor<MJExpression> {
 	public MJExpression visitExpression(MJDivide e) throws VisitorException {
 		e.setLhs(visitExpression(e.getLhs()));
 		e.setRhs(visitExpression(e.getRhs()));
-		return null;
+		return e;
 	}
 
 	public MJExpression visitExpression(MJModulo e) throws VisitorException {
 		e.setLhs(visitExpression(e.getLhs()));
 		e.setRhs(visitExpression(e.getRhs()));
-		return null;
+		return e;
 	}
 
 	public MJExpression visitExpression(MJChar e) throws VisitorException {
@@ -350,42 +360,42 @@ public class AddThisToSelectors extends IRElementVisitor<MJExpression> {
 	public MJExpression visitExpression(MJPostIncrementExpr e)
 			throws VisitorException {
 		e.setArgument(visitExpression(e.getArgument()));
-		return null;
+		return e;
 	}
 
 	public MJExpression visitExpression(MJPreIncrementExpr e)
 			throws VisitorException {
 		e.setArgument(visitExpression(e.getArgument()));
-		return null;
+		return e;
 	}
 
 	public MJExpression visitExpression(MJPostDecrementExpr e)
 			throws VisitorException {
 		e.setArgument(visitExpression(e.getArgument()));
-		return null;
+		return e;
 	}
 
 	public MJExpression visitExpression(MJPreDecrementExpr e)
 			throws VisitorException {
 		e.setArgument(visitExpression(e.getArgument()));
-		return null;
+		return e;
 	}
 
 	public MJExpression visitExpression(MJTernary e) throws VisitorException {
 		e.setCondition(visitExpression(e.getCondition()));
 		e.setTrueExpr(visitExpression(e.getTrueExpr()));
 		e.setFalseExpr(visitExpression(e.getFalseExpr()));
-		return null;
+		return e;
 	}
 
 	public MJExpression visitExpression(MJSqrt e) throws VisitorException {
 		e.setParameter(visitExpression(e.getParameter()));
-		return null;
+		return e;
 	}
 
 	public MJExpression visitExpression(MJTypeCast e) throws VisitorException {
 		e.setArgument(visitExpression(e.getArgument()));
-		return null;
+		return e;
 	}
 
 	public MJExpression visitExpression(MJLinq e) throws VisitorException {
@@ -393,11 +403,17 @@ public class AddThisToSelectors extends IRElementVisitor<MJExpression> {
 		e.setInExpression(visitExpression(e.getInExpression()));
 		e.setWhereExpression(visitExpression(e.getWhereExpression()));
 		e.setSelectExpression(visitExpression(e.getSelectExpression()));
+		return e;
+	}
+
+	public MJExpression visitStatement(MJNoStatement e)
+			throws VisitorException {
 		return null;
 	}
 
-	public MJExpression visitExpression(MJNoStatement e)
-			throws VisitorException {
+	@Override
+	public MJExpression visitExpression(MJNoStatement e) throws VisitorException {
+		// TODO Auto-generated method stub
 		return null;
 	}
 

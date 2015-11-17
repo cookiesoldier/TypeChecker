@@ -651,7 +651,7 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 		
 		// typecheck the index
 		
-		//IR.currentClass returnerer den klasse vi er i lige nu, hvorimod IR.currentMethod returnerer metoden vi er i.¨
+		//IR.currentClass returnerer den klasse vi er i lige nu, hvorimod IR.currentMethod returnerer metoden vi er i.ï¿½
 		
 		
 		MJType idxtype = visitExpression(e.getIndex());
@@ -848,7 +848,6 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 		return z;
 	}
 
-	@Override
 	public MJType visitStatement(MJNoStatement e) throws VisitorException {
 		// TODO Auto-generated method stub
 		return null;

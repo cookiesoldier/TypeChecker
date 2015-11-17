@@ -304,4 +304,161 @@ public class VariableInit extends IRElementVisitorWithArgument<HashSet<MJVariabl
 		return arg;
 	}
 
+	@Override
+	public HashSet<MJVariable> visitTypeDef(MJTypeDef e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitAttribute(MJAttribute e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitConstructor(MJConstructor e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitStatement(MJTryBlock e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitStatement(MJConstructorCallStmt e, HashSet<MJVariable> arg)
+			throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitStatement(MJFor e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitStatement(MJThrow e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitStatement(MJPostIncrementStmt e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitStatement(MJPreIncrementStmt e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitStatement(MJPostDecrementStmt e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitStatement(MJPreDecrementStmt e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitStatement(MJVariableStmt e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitExpression(MJGreater e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitExpression(MJDivide e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitExpression(MJModulo e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitExpression(MJChar e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitExpression(MJDouble e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitExpression(MJPostIncrementExpr e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitExpression(MJPreIncrementExpr e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitExpression(MJPostDecrementExpr e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitExpression(MJPreDecrementExpr e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitExpression(MJTernary e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitExpression(MJSqrt e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitExpression(MJTypeCast e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitExpression(MJLinq e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public HashSet<MJVariable> visitStatement(MJNoStatement e, HashSet<MJVariable> arg) throws VisitorException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
