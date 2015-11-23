@@ -619,7 +619,6 @@ public class PrettyPrint extends IRElementVisitor<Integer> {
 	public Integer visitExpression(MJArrayInit e) throws VisitorException {
 		pp.print("{");
 		
-		
 		for(MJExpression z : e.getArguments()){
 			visitExpression(z);
 			if(!(e.getArguments().getLast() == z))
