@@ -784,6 +784,7 @@ public class TypeCheck extends IRElementVisitor<MJType> {
 			throw new TypeCheckerException("Arguments to > must be of type int");
 		}
 		e.setType(MJType.getBooleanType());
+		
 		return e.getType();
 	}
 
